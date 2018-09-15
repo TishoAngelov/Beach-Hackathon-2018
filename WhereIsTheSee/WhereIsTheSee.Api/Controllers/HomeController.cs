@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Web.Mvc;
+using WhereIsTheSee.Data;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace WhereIsTheSee.Api.Controllers
 {
-    public class HomeController : Controller
-    {
-        public ActionResult Index()
-        {
-            ViewBag.Title = "Home Page";
+  public class HomeController : Controller
+  {
+    public ApplicationDbContext dbContext;
 
-            return View();
-        }
+    public HomeController()
+    {
+      this.dbContext = ApplicationDbContext.Create();
     }
+
+    public ActionResult Index()
+    {
+      ViewBag.Title = "Home Page";
+
+      ViewBag.Users = this.dbContext.Users.Select(u => u.Email).ToList<string>();
+
+      return View();
+    }
+  }
 }

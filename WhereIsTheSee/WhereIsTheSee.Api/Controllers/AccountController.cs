@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -16,12 +15,13 @@ using Microsoft.Owin.Security.OAuth;
 using WhereIsTheSee.Api.Models;
 using WhereIsTheSee.Api.Providers;
 using WhereIsTheSee.Api.Results;
+using WhereIsTheSee.Model;
 
 namespace WhereIsTheSee.Api.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    public class AccountController : BaseApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
