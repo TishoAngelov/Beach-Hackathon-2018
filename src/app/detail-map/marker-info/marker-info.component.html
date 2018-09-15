@@ -2,4 +2,5 @@
     <p>{{marker?.locationName}}</p>
     <p>{{marker?.dateCreated | date:'medium' }} </p>
     <p><cite>{{marker?.description}}</cite></p>
+    <img *ngIf="marker.imageBase64" [src]="domSanitizer.bypassSecurityTrustUrl(marker.imageBase64)" />
 </div>
