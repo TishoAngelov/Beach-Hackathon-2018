@@ -23,6 +23,8 @@ import { HomeComponent } from './home/home.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
 import { YagaModule } from '@yaga/leaflet-ng2';
+import { FlagSevice } from './services/flags.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { YagaModule } from '@yaga/leaflet-ng2';
   imports: [
     YagaModule,
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
@@ -65,7 +68,7 @@ import { YagaModule } from '@yaga/leaflet-ng2';
     MatRadioModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [FlagSevice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
