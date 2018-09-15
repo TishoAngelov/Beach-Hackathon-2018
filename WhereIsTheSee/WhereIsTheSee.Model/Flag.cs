@@ -8,7 +8,7 @@ namespace WhereIsTheSee.Model
   {
     public Flag()
     {
-      this.DateCreated = new DateTime();
+      this.DateCreated = DateTime.Now;
     }
 
     [Key]

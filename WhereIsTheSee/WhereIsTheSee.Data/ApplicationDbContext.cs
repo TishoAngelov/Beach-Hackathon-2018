@@ -16,5 +16,7 @@ namespace WhereIsTheSee.Data
     {
       return new ApplicationDbContext();
     }
+
+    public IDbSet<Flag> Flags { get; set; }
   }
 }
