@@ -33,7 +33,13 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+package-lock.json
 
 # System Files
 .DS_Store
 Thumbs.db
+/WhereIsTheSee/packages
+/WhereIsTheSee/.vs
+/WhereIsTheSee/WhereIsTheSee.Api.Tests/obj/Debug
+/WhereIsTheSee/WhereIsTheSee.Api/bin
+/WhereIsTheSee/WhereIsTheSee.Api/obj/Debug
