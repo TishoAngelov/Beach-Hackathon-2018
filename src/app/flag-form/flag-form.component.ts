@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FileSelectDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { FlagSevice } from '../services/flags.service';
 
 // TODO: Put in separate file
@@ -58,7 +57,7 @@ export class FlagFormComponent implements OnInit {
 
      };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      alert('File uploaded successfully');
+      console.log('ImageUpload:uploaded:', item, status, response);
     };
   }
 

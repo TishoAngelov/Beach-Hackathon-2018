@@ -1,33 +1,10 @@
 <mat-card *ngIf="flagForm">
-  <mat-card-title>Състояние на морето</mat-card-title>
+  <mat-card-title>Е, как е морето в момента?</mat-card-title>
   
   <mat-card-content>    
       <form [formGroup]="flagForm" (ngSubmit)="onSubmit()">   
-          <mat-form-field class="wis-full-width">    
-              <input formControlName="locationName" matInput placeholder="Местоположение">    
-          </mat-form-field>
-
-          <mat-form-field class="wis-full-width">    
-            <input formControlName="beachName" matInput placeholder="Име на плажа">    
-          </mat-form-field> 
-
-          <div class="wis-file-field wis-full-width">
-            <a class="btn-floating">
-              <img src="./assets/images/upload-icon.png" alt="">
-              <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
-            </a>
-            <mat-form-field >
-              <div class="file-path-wrapper">
-                <input matInput placeholder="Избери файл" [(ngModel)]="uploadFileName" [ngModelOptions]="{standalone: true}">
-              </div>
-            </mat-form-field>
-          </div>
-
-          <mat-form-field class="wis-full-width">    
-            <textarea formControlName="description" matInput placeholder="Описание" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>    
-          </mat-form-field>
-
-          <div class="wis-full-width">
+        
+          <div class="wis-full-width flags">
             <div (click)="setFlagType(flagType.GREEN)">
               <input type="radio" id="color-1" name="color" value="color-1" checked>
               <label for="color-1">
@@ -55,8 +32,29 @@
               </label>
             </div>
           </div>
-          <br>
-          <button mat-raised-button color="primary">Добави</button>
+          <br />
+          <mat-divider></mat-divider>
+          <h2 style="text-align: left">А може би малко детайли?</h2>
+
+          <mat-form-field class="wis-full-width text-area">    
+            <textarea formControlName="description" matInput placeholder="Можеш да ги въведеш тук" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>    
+          </mat-form-field>
+
+          <h2 style="text-align: right">... или поне снимка?</h2>
+          <div class="wis-file-field wis-full-width">
+            <a class="btn-floating">
+              <img src="./assets/images/upload-icon.png" alt="">
+              <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+            </a>
+            <mat-form-field >
+              <div class="file-path-wrapper">
+                <input matInput placeholder="Избери файл" [(ngModel)]="uploadFileName" [ngModelOptions]="{standalone: true}">
+              </div>
+            </mat-form-field>
+          </div>
+
+          <br />
+          <button class="send" type="submit" mat-raised-button color="primary" (click)="!!uploader.getNotUploadedItems().length && uploader.uploadAll()">Кажи на всички</button>
       </form>
   </mat-card-content>
 </mat-card>   
