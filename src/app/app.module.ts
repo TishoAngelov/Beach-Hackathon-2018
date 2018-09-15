@@ -9,11 +9,13 @@ import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 
 import { DetailMapComponent } from './detail-map/detail-map.component';
+import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    MarkerInfoComponent,
     DetailsComponent,
     DetailMapComponent
   ],
