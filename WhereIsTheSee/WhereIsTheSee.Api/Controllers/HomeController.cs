@@ -17,7 +17,7 @@ namespace WhereIsTheSee.Api.Controllers
     {
       ViewBag.Title = "Home Page";
 
-      ViewBag.Users = this.dbContext.Users.Select(u => u.Email).ToList<string>();
+      ViewBag.Flags = this.dbContext.Flags.Select(f => f.LocationName).ToList<string>();
 
       return View();
     }
