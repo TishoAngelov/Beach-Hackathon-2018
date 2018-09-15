@@ -17,11 +17,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() : void {
-    if(this.email === 'admin' && this.password === 'admin'){
-     this.router.navigate(['home']);
-    }else {
-      alert('Invalid credentials');
-    }
+    // if(this.email === 'admin' && this.password === 'admin'){
+    this.router.navigate(['home']);
+    // }else {
+    //   alert('Invalid credentials');
+    // }
   }
 
   register() : void {
