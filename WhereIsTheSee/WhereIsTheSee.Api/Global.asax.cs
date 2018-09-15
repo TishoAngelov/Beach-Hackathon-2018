@@ -30,19 +30,11 @@ namespace WhereIsTheSee.Api
 
     protected void Application_BeginRequest()
     {
-      if (Request.HttpMethod == "OPTIONS")
-      {
-        Response.Clear();
-
         Response.Headers.Add("Access-Control-Allow-Origin", "*");
         Response.Headers.Add("Access-Control-Allow-Headers", "*");
         Response.Headers.Add("Access-Control-Allow-Methods", "*");
         Response.Headers.Add("Access-Control-Allow-Credentials", "true");
         Response.Headers.Add("Access-Control-Max-Age", "10800");
-
-        Response.Flush();
-        Response.End();
-      }
     }
   }
 }
