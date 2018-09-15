@@ -1,4 +1,5 @@
-.yaga-map {
-  min-height: 300px;
-  height: calc(100% - 60px);
+yaga-map { 
+  height: calc(100% - 64px); 
+  width: 100%; 
+  position: absolute !important; 
 }
