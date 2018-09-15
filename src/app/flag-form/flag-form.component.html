@@ -1,29 +1,53 @@
-<form [formGroup]="flagForm" (ngSubmit)="onSubmit()">
-  <label>
-    Име на плажа:
-    <input type="text" formControlName="beachName" required>
-  </label>
+<mat-card *ngIf="flagForm">    
+  <!-- Title of an Card -->    
+  <mat-card-title>    
+    Състояние на морето
+  </mat-card-title>    
+  
+  <mat-card-content>    
+      <form [formGroup]="flagForm" (ngSubmit)="onSubmit()">   
+          <mat-form-field class="wis-full-width">    
+              <input formControlName="locationName" matInput placeholder="Местоположение">    
+          </mat-form-field>
 
-  <label>
-    Местоположение:
-    <input type="text" formControlName="lastName">
-  </label>
+          <mat-form-field class="wis-full-width">    
+            <input formControlName="beachName" matInput placeholder="Име на плажа">    
+          </mat-form-field> 
 
-  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+          <div class="wis-full-width">
+            <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+    
+            <button type="button" class="btn btn-success btn-s" 
+              (click)="uploader.uploadAll()" 
+              [disabled]="!uploader.getNotUploadedItems().length" >
+                  Снимка
+            </button>
+          </div>
 
-  <button type="button" class="btn btn-success btn-s" 
-    (click)="uploader.uploadAll()" 
-    [disabled]="!uploader.getNotUploadedItems().length" >
-        Снимка
-  </button>
+          <mat-form-field class="wis-full-width">    
+            <textarea formControlName="description" matInput placeholder="Описание" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>    
+          </mat-form-field>
 
-  <button type="submit" [disabled]="!flagForm.valid">Добави</button>
-</form>
+          <mat-form-field class="wis-full-width">
+              <button type="button" class="btn btn-primary bmd-btn-fab">
+                  <i class="material-icons">grade</i>
+              </button>
+          </mat-form-field>
 
+          
+          <span>Флаг:</span> 
+          <mat-radio-group formControlName="flagType">
+            <mat-radio-button value="flagType.GREEN">Зелен</mat-radio-button>
+            <mat-radio-button value="flagType.YELLOW">Жълт</mat-radio-button> 
+            <mat-radio-button value="flagType.RED">Червен</mat-radio-button> 
+          </mat-radio-group>
 
-
-<!-- 
-Copyright 2017-2018 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->
+          <mat-form-field class="wis-full-width">    
+            <input matInput placeholder="Email">    
+          </mat-form-field> 
+          
+          <button mat-raised-button color="primary">Submit</button>
+          <button mat-raised-button color="primary  ">Clear</button> 
+      </form>    
+  </mat-card-content>    
+</mat-card>   

@@ -1,0 +1,65 @@
+// Colors
+$color-green-flag: #2ecc71;
+$color-yellow-flag: #f1c40f;
+$color-red-flag: #e74c3c;
+
+.wis-full-width { 
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+// Radio buttons
+// .wis-full-width {
+//   div {
+//     display: inline-block;
+//   }
+
+  input[type="radio"] {
+    display: none;
+
+    + label {
+      color: #333;
+      font-size: 14px;
+
+      span {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: -1px 4px 0 0;
+        vertical-align: middle;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 2px solid #FFFFFF;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        line-height: 44px;
+    
+        img {
+          opacity: 0;
+          transition: all .3s ease;
+        }
+      }
+    }
+
+    &#color-green + label span {
+      background-color: $color-green-flag;
+    }
+
+    &#color-yellow + label span {
+      background-color: $color-yellow-flag;
+    }
+
+    &#color-red + label span {
+      background-color: $color-red-flag;
+    }
+
+    &:checked + label span img {
+      opacity: 1;
+    }
+  }
+// }

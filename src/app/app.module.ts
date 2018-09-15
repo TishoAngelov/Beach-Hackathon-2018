@@ -3,8 +3,16 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatFormFieldModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatInputModule,
+  MatRadioModule,
+  MatCardModule
+ } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DetailsComponent } from './details/details.component';
@@ -26,6 +34,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     BrowserModule,
@@ -34,8 +43,21 @@ import { FileSelectDirective } from 'ng2-file-upload';
     }),
     ReactiveFormsModule,
     MatToolbarModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCardModule
+  ],
+  exports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

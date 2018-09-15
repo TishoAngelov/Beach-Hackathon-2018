@@ -8,41 +8,39 @@ import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upl
 
 interface FlagData {
   beachName?: string;
-  locationName: string;
+  locationName?: string;
   lat: number | null;
   long: number | null;
   flagType: FLAG;
   description?: string;
-  timestamp: number;
   image?: string;
 }
 
 export enum FLAG {
-  GREEN,
+  GREEN = 1,
   YELLOW,
-  RED,
-  RED_YELLOW
+  RED
 }
 
 @Component({
   selector: 'wis-flag-form',
   templateUrl: './flag-form.component.html',
-  styleUrls: ['./flag-form.component.css']
+  styleUrls: ['./flag-form.component.scss']
 })
 export class FlagFormComponent implements OnInit {
 
   public flagForm: FormGroup;
 
   public uploader: FileUploader = new FileUploader({url: 'URL', itemAlias: 'photo'});
+  public flagType = FLAG;
 
   public defaultFlagData: FlagData =  {
     beachName: '',
-    locationName: '',
+    locationName: 'Бургас',
     lat: null,
     long: null,
     description: '',
     flagType: FLAG.GREEN,
-    timestamp: null,
     image: ''
   };
 
@@ -66,7 +64,6 @@ export class FlagFormComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position: Position) => {
         this.defaultFlagData.lat = position.coords.latitude;
         this.defaultFlagData.long = position.coords.longitude;
-        this.defaultFlagData.timestamp = position.timestamp;
         this.flagForm = this.initForm();
       });
     } else {
@@ -74,14 +71,14 @@ export class FlagFormComponent implements OnInit {
     }
   }
 
-  private initForm(): FormGroup { 
+  private initForm(): FormGroup {
     return this.formBuilder.group({
       beachName: [this.defaultFlagData.beachName, Validators.compose([Validators.required])],
       locationName: [this.defaultFlagData.locationName, Validators.compose([Validators.required])],
       description: [this.defaultFlagData.description],
+      flagType: [this.defaultFlagData.flagType],
       lat: [this.defaultFlagData.lat, Validators.compose([Validators.required])],
       long: [this.defaultFlagData.long, Validators.compose([Validators.required])],
-      timestamp: [this.defaultFlagData.timestamp, Validators.compose([Validators.required])],
       image: [this.defaultFlagData.image, Validators.compose([Validators.required])]
     });
   }
