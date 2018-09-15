@@ -1,0 +1,60 @@
+<mat-card *ngIf="flagForm">
+  <mat-card-title>Състояние на морето</mat-card-title>
+  
+  <mat-card-content>    
+      <form [formGroup]="flagForm" (ngSubmit)="onSubmit()">   
+          <mat-form-field class="wis-full-width">    
+              <input formControlName="locationName" matInput placeholder="Местоположение">    
+          </mat-form-field>
+
+          <mat-form-field class="wis-full-width">    
+            <input formControlName="beachName" matInput placeholder="Име на плажа">    
+          </mat-form-field> 
+
+          <div class="wis-full-width">
+            <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+            <button mat-raised-button
+              color="primary"
+              (click)="uploader.uploadAll()" 
+              [disabled]="!uploader.getNotUploadedItems().length" >
+                Снимка
+            </button>
+          </div>
+
+          <mat-form-field class="wis-full-width">    
+            <textarea formControlName="description" matInput placeholder="Описание" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>    
+          </mat-form-field>
+
+          <div class="wis-full-width">
+            <div (click)="setFlagType(flagType.GREEN)">
+              <input type="radio" id="color-1" name="color" value="color-1" checked>
+              <label for="color-1">
+                <span>
+                  <img src="assets/images/green-flag.png" alt="Checked Icon" />
+                </span>
+              </label>
+            </div>
+
+            <div (click)="setFlagType(flagType.YELLOW)">
+              <input type="radio" id="color-2" name="color" value="color-2">
+              <label for="color-2">
+                <span>
+                  <img src="./assets/images/yellow-flag.png" alt="Checked Icon" />
+                </span>
+              </label>
+            </div>
+            
+            <div (click)="setFlagType(flagType.RED)">
+              <input type="radio" id="color-3" name="color" value="color-3">
+              <label for="color-3">
+                <span>
+                  <img src="./assets/images/red-flag.png" alt="Checked Icon" />
+                </span>
+              </label>
+            </div>
+          </div>
+          <br>
+          <button mat-raised-button color="primary">Добави</button>
+      </form>
+  </mat-card-content>
+</mat-card>   
