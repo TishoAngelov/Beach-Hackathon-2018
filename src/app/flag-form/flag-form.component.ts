@@ -13,7 +13,7 @@ export interface FlagData {
   long: number | null;
   flagType: FLAG;
   description?: string;
-  image?: Blob;
+  image?: string;
 }
 
 export enum FLAG {
@@ -34,7 +34,6 @@ export class FlagFormComponent implements OnInit {
   public uploader: FileUploader = new FileUploader({ itemAlias: 'photo'});
   public flagType = FLAG;
   public uploadFileName: string;
-
   public defaultFlagData: FlagData =  {
     beachName: 'Южен плаж',
     locationName: 'Бургас',
@@ -42,16 +41,18 @@ export class FlagFormComponent implements OnInit {
     long: null,
     description: '',
     flagType: FLAG.GREEN,
-    image: null
+    image: ''
   };
-
-  constructor(private formBuilder: FormBuilder, private flagService: FlagSevice) { }
+  private base64textString: string;
+  
+  constructor(private formBuilder: FormBuilder, private flagService: FlagSevice) {
+    this.base64textString = '';
+  }
 
   public ngOnInit(): void {
     this.subscribeCurrentPosition();
     this.uploader.onAfterAddingFile = (file: any) => {
-      const imageFile = file.file.rawFile.slice('base64');
-      this.flagForm.get('image').setValue(imageFile);
+      this.handleFileSelect(file.file.rawFile);
       this.uploadFileName = file._file.name;
       file.withCredentials = false;
 
@@ -64,10 +65,21 @@ export class FlagFormComponent implements OnInit {
   public setFlagType(flag: number): void {
     this.flagForm.get('flagType').setValue(flag);
   }
-
+  
   public onSubmit(): void {
+    this.flagForm.get('image').setValue(this.base64textString);
     this.flagService.addNewFlag(this.flagForm.value).subscribe(res => console.log(res));
-    console.warn(this.flagForm.value);
+  }
+  private handleFileSelect(file): void {
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
+  }
+  private handleReaderLoaded(readerEvt): void {
+    const binaryString = readerEvt.target.result;
+    this.base64textString = btoa(binaryString);
   }
 
   private subscribeCurrentPosition(): void {
