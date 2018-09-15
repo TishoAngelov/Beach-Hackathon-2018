@@ -3,29 +3,40 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatFormFieldModule,
-  MatIconModule,
-  MatToolbarModule,
-  MatButtonModule,
-  MatInputModule,
-  MatRadioModule,
-  MatCardModule
- } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FlagFormComponent } from './flag-form/flag-form.component';
 import { DetailMapComponent } from './detail-map/detail-map.component';
-import { HomeComponent } from './home/home.component';
+import { YagaModule } from '@yaga/leaflet-ng2';
 
 import { FileSelectDirective } from 'ng2-file-upload';
 import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
-import { YagaModule } from '@yaga/leaflet-ng2';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatInputModule,
+  MatTableModule,
+  MatFormFieldModule,
+  MatRadioModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
+import { RegisterComponent } from './register/register.component';
+import { FlagSevice } from './services/flags.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
     HomeComponent, 
     FlagFormComponent,
     FileSelectDirective,
@@ -35,6 +46,7 @@ import { YagaModule } from '@yaga/leaflet-ng2';
   imports: [
     YagaModule,
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
@@ -54,15 +66,26 @@ import { YagaModule } from '@yaga/leaflet-ng2';
   exports: [
     YagaModule,
     AppRoutingModule,
-    MatToolbarModule,
+    FormsModule,
     MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatDialogModule,
+    MatTableModule,
+    MatMenuModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [FlagSevice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

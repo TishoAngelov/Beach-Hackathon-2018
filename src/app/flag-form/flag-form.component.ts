@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+import { FlagSevice } from '../services/flags.service';
 
 // TODO: Put in separate file
 
-interface FlagData {
+export interface FlagData {
   beachName?: string;
   locationName?: string;
   lat: number | null;
@@ -45,9 +46,7 @@ export class FlagFormComponent implements OnInit {
     image: null
   };
 
-  constructor(private formBuilder: FormBuilder) {
-    this.uploadFileName = '';
-  }
+  constructor(private formBuilder: FormBuilder, private flagService: FlagSevice) { }
 
   public ngOnInit(): void {
     this.subscribeCurrentPosition();
@@ -68,6 +67,7 @@ export class FlagFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    this.flagService.addNewFlag(this.flagForm.value).subscribe(res => console.log(res));
     console.warn(this.flagForm.value);
   }
 
