@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'wis-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'WhereIsTheSea';
+  title = 'Къде е морето? :)';
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title);
+  }
 }
