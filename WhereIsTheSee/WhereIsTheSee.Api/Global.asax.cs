@@ -25,10 +25,11 @@ namespace WhereIsTheSee.Api
     {
       if (Request.HttpMethod == "OPTIONS")
       {
+        Response.Clear();
+        Response.Headers.Clear();
         Response.Headers.Add("Access-Control-Allow-Origin", "*");
         Response.Headers.Add("Access-Control-Allow-Headers", "*");
         Response.Headers.Add("Access-Control-Allow-Methods", "*");
-
         Response.Flush();
         Response.End();
       }
