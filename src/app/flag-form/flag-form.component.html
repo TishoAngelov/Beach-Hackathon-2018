@@ -35,13 +35,6 @@
           <br />
           <mat-divider></mat-divider>
           <h2 style="text-align: left">А може би малко детайли?</h2>
-          <!-- <mat-form-field class="wis-full-width">    
-              <input formControlName="locationName" matInput placeholder="Местоположение">    
-          </mat-form-field>
-
-          <mat-form-field class="wis-full-width">    
-            <input formControlName="beachName" matInput placeholder="Име на плажа">    
-          </mat-form-field>  -->
 
           <mat-form-field class="wis-full-width text-area">    
             <textarea formControlName="description" matInput placeholder="Можеш да ги въведеш тук" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>    
@@ -51,18 +44,9 @@
           <div class="wis-full-width">
             <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
           </div>
-          <br />
-          <div class="wis-full-width">
-            <button mat-raised-button
-              color="primary"
-              (click)="uploader.uploadAll()" 
-              [disabled]="!uploader.getNotUploadedItems().length" >
-                Качи снимка
-            </button>
-          </div>
 
           <br />
-          <button mat-raised-button color="primary">Добави</button>
+          <button mat-raised-button color="primary" (click)="!!uploader.getNotUploadedItems().length && uploader.uploadAll()">Добави</button>
       </form>
   </mat-card-content>
 </mat-card>   

@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Newtonsoft.Json.Serialization;
 
 namespace WhereIsTheSee.Api
 {
@@ -19,6 +20,12 @@ namespace WhereIsTheSee.Api
       FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
       RouteConfig.RegisterRoutes(RouteTable.Routes);
       BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+      GlobalConfiguration.Configuration
+        .Formatters
+        .JsonFormatter
+        .SerializerSettings
+        .ContractResolver = new CamelCasePropertyNamesContractResolver();
     }
 
     protected void Application_BeginRequest()
