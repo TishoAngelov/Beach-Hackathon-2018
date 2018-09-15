@@ -5,12 +5,8 @@
 @import './styles/palettes/primary.scss';
 @import './styles/palettes/secondary.scss';
 
-// $custom-typography: mat-typography-config(
-//     $font-family: 'Pacifico, cursive'
-// );
-// @include mat-core($custom-typography);
-
 @include mat-core();
+
 $epm-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).

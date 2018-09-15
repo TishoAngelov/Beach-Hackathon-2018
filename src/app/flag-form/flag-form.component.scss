@@ -15,14 +15,21 @@ $color-red-flag: #ff8c81;
   }
  
 }
+
 ::ng-deep .text-area {
   .mat-form-field-infix, .mat-form-field-wrapper {
     width: 100% !important;
   }
 }
+
 .flags {
   text-align: center;
   margin-bottom: 14px;
+}
+
+.send {
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .wis-full-width { 
