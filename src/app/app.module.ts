@@ -29,6 +29,8 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 import { RegisterComponent } from './register/register.component';
+import { FlagSevice } from './services/flags.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     YagaModule,
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
@@ -82,7 +85,7 @@ import { RegisterComponent } from './register/register.component';
     MatRadioModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [FlagSevice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
