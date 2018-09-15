@@ -5,10 +5,13 @@ import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DetailMapComponent } from './detail-map/detail-map.component';
+import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
+import { AgmCoreModule } from '@agm/core';
+import { HttpClientModule } from '@angular/common/http';
 import {
-
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
 
   MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule
@@ -21,10 +24,16 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     DetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MarkerInfoComponent,
+    DetailsComponent,
+    DetailMapComponent
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBlGiVwuebeamPH77r6usLJxEfQahuL7Wo'
+    }),
     AppRoutingModule,
     FormsModule,
     MatButtonModule,
@@ -36,7 +45,9 @@ import { RegisterComponent } from './register/register.component';
     MatIconModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
