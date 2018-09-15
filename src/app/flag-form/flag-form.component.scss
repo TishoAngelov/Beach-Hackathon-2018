@@ -17,10 +17,6 @@ $color-red-flag: #ff8c81;
 }
 
 ::ng-deep{
-  .mat-form-field { 
-    width: 100% !important;
-  }
-
   .text-area {
     .mat-form-field-infix, .mat-form-field-wrapper {
       width: 100% !important;
