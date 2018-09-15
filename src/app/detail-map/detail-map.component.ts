@@ -22,7 +22,7 @@ export class DetailMapComponent implements OnInit {
   public shadowSize: Point = new Point(30, 30);
   public shadowAnchor: Point = new Point(-1, 30);
 
-  markers = []
+  markers = [];
 
   constructor(private flagService: FlagSevice) { }
 
@@ -30,8 +30,8 @@ export class DetailMapComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(position => {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
-    })
-    this.flagService.getAllFlags().subscribe(flags => { console.log(flags); this.markers = <any>flags });
+    });
+    this.flagService.getAllFlags().subscribe(flags => { console.log(flags); this.markers = <any>flags; });
   }
 
 

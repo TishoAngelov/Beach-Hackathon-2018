@@ -3,6 +3,7 @@ import { FileSelectDirective, FileUploader } from 'ng2-file-upload/ng2-file-uplo
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FlagSevice } from '../services/flags.service';
+import {Router} from '@angular/router';
 
 // TODO: Put in separate file
 
@@ -45,7 +46,7 @@ export class FlagFormComponent implements OnInit {
     image: null
   };
 
-  constructor(private formBuilder: FormBuilder, private flagService: FlagSevice) { }
+  constructor(private formBuilder: FormBuilder, private flagService: FlagSevice, private router: Router) { }
 
   public ngOnInit(): void {
     this.subscribeCurrentPosition();
@@ -68,6 +69,7 @@ export class FlagFormComponent implements OnInit {
   public onSubmit(): void {
     this.flagService.addNewFlag(this.flagForm.value).subscribe(res => console.log(res));
     console.warn(this.flagForm.value);
+    this.router.navigate(['/home']);
   }
 
   private subscribeCurrentPosition(): void {
