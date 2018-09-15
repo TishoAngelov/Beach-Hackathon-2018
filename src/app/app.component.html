@@ -1,7 +1,6 @@
 <mat-toolbar color="primary">
-  <span>{{ title }}</span>
-  <a mat-button routerLink="/home">Начало</a>
-  <a mat-button routerLink="/new-flag">Добави</a>
+  <span class="fill-remaining-space"><a class="app-title" routerLink="/home">{{ title }}</a></span>
+  <a mat-button routerLink="/new-flag">Какъв е флагът?</a>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

@@ -3,6 +3,28 @@ $color-green-flag: #2ecc71;
 $color-yellow-flag: #f1c40f;
 $color-red-flag: #ff8c81;
 
+.mat-card {
+  background: none;
+  box-shadow: none !important;
+
+  .mat-card-title, h2 {
+    color: rgba(0,0,0,.54);
+    text-align: center;
+    font-weight: normal;
+    font-family: 'Pacifico', cursive !important;
+  }
+ 
+}
+::ng-deep .text-area {
+  .mat-form-field-infix, .mat-form-field-wrapper {
+    width: 100% !important;
+  }
+}
+.flags {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
 .wis-full-width { 
   display: flex;
   flex-direction: row;
@@ -14,6 +36,7 @@ $color-red-flag: #ff8c81;
 // Radio buttons
 // .wis-full-width {
   div {
+    flex-grow: 1;
     display: inline-block;
   }
 

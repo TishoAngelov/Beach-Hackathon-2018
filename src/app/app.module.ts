@@ -1,26 +1,26 @@
-import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatRadioModule,
+  MatToolbarModule
+} from '@angular/material';
+
 import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatFormFieldModule,
-  MatIconModule,
-  MatToolbarModule,
-  MatButtonModule,
-  MatInputModule,
-  MatRadioModule,
-  MatCardModule
- } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { FlagFormComponent } from './flag-form/flag-form.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { DetailMapComponent } from './detail-map/detail-map.component';
-import { HomeComponent } from './home/home.component';
-
 import { FileSelectDirective } from 'ng2-file-upload';
+import { FlagFormComponent } from './flag-form/flag-form.component';
+import { HomeComponent } from './home/home.component';
 import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
+import { NgModule } from '@angular/core';
 import { YagaModule } from '@yaga/leaflet-ng2';
 
 @NgModule({
@@ -49,7 +49,8 @@ import { YagaModule } from '@yaga/leaflet-ng2';
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   exports: [
     YagaModule,
@@ -60,7 +61,8 @@ import { YagaModule } from '@yaga/leaflet-ng2';
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
