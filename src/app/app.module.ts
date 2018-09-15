@@ -3,21 +3,40 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
+import { LoginComponent } from './login/login.component';
+import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
 
+  MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
+
+  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule
+
+} from '@angular/material';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatDialogModule,
+    MatTableModule,
+    MatMenuModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
     MatToolbarModule,
-    MatButtonModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
