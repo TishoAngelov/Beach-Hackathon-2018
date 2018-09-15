@@ -1,4 +1,5 @@
 <yaga-map [doubleClickZoomEnabled]="false"
+          [zoom]="16"
           [lat]="lat"
           [lng]="lng">
   <yaga-marker *ngFor="let marker of markers"
@@ -15,7 +16,7 @@
                [shadowSize]="shadowSize"
                [shadowAnchor]="shadowAnchor"></yaga-icon>
     <!-- [(zIndex)]="getDuplexPropertyByName('zIndex').value" -->
-    <yaga-tooltip>This is the content of the tooltip</yaga-tooltip>
+    <!-- <yaga-tooltip>This is the content of the tooltip</yaga-tooltip> -->
     <yaga-popup>
       <wis-marker-info [marker]="marker"></wis-marker-info>
     </yaga-popup>

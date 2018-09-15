@@ -24,8 +24,8 @@ export class DetailMapComponent implements OnInit {
   @Input() markers = [
     {
       locationName: 'Централен плаж Бургас',
-      lat: 42.2863377,
-      long: 27.754287899999998,
+      lat: 42.49179,
+      long: 27.481198,
       flagType: 'GREEN',
       timestamp: 1537006006219,
     },
