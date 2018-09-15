@@ -1,7 +1,10 @@
 @import '~normalize.css/normalize.css';
+@import '~leaflet/dist/leaflet.css';
+@import '~@angular/material/theming';
+
 @import './styles/palettes/primary.scss';
 @import './styles/palettes/secondary.scss';
-@import '~@angular/material/theming';
+
 
 @include mat-core();
 

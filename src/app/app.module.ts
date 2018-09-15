@@ -21,6 +21,8 @@ import { DetailMapComponent } from './detail-map/detail-map.component';
 import { HomeComponent } from './home/home.component';
 
 import { FileSelectDirective } from 'ng2-file-upload';
+import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
+import { YagaModule } from '@yaga/leaflet-ng2';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     DetailsComponent,
     FlagFormComponent,
     FileSelectDirective,
+    MarkerInfoComponent,
     DetailsComponent,
     DetailMapComponent
   ],
@@ -51,6 +54,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     MatCardModule
   ],
   exports: [
+    YagaModule,
+    AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
