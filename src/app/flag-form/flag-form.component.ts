@@ -7,14 +7,14 @@ import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upl
 // TODO: Put in separate file
 
 interface FlagData {
-  beachName: string;
+  beachName?: string;
   locationName: string;
   lat: number | null;
   long: number | null;
   flagType: FLAG;
   description?: string;
   timestamp: number;
-  image: string;
+  image?: string;
 }
 
 export enum FLAG {

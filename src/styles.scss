@@ -1,0 +1,16 @@
+@import '~normalize.css/normalize.css';
+@import './styles/palettes/primary.scss';
+@import './styles/palettes/secondary.scss';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$epm-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme(mat-palette($epm-primary), mat-palette($epm-secondary), $epm-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
