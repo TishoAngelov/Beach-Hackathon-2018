@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'wis-detail-map',
   templateUrl: './detail-map.component.html',
-  styleUrls: ['./detail-map.component.css']
+  styleUrls: ['./detail-map.component.scss']
 })
 export class DetailMapComponent implements OnInit {
   lat: number = 51.678418;
