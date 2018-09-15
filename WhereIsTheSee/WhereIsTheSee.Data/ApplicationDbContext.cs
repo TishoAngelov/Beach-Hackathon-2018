@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using WhereIsTheSee.Data.Migrations;
 using WhereIsTheSee.Model;
 
 namespace WhereIsTheSee.Data
@@ -9,12 +10,14 @@ namespace WhereIsTheSee.Data
     public ApplicationDbContext()
       : base("DefaultConnection")
     {
-
+      Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
     }
 
     public static ApplicationDbContext Create()
     {
       return new ApplicationDbContext();
     }
+
+    public IDbSet<Flag> Flags { get; set; }
   }
 }

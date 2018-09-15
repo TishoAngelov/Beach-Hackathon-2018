@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using WhereIsTheSee.Api.Models;
+using WhereIsTheSee.Data;
+using WhereIsTheSee.Model;
 
 namespace WhereIsTheSee.Api
 {

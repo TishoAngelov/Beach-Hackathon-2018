@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using WhereIsTheSee.Api.Providers;
 using WhereIsTheSee.Api.Models;
+using WhereIsTheSee.Data;
 
 namespace WhereIsTheSee.Api
 {

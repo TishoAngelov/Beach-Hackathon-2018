@@ -15,6 +15,7 @@ using Microsoft.Owin.Security.OAuth;
 using WhereIsTheSee.Api.Models;
 using WhereIsTheSee.Api.Providers;
 using WhereIsTheSee.Api.Results;
+using WhereIsTheSee.Model;
 
 namespace WhereIsTheSee.Api.Controllers
 {

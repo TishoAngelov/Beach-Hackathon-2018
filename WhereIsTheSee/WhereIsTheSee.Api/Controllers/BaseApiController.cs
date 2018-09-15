@@ -1,9 +1,15 @@
 ﻿using System.Web.Http;
-using System.Web.Http.Cors;
+using WhereIsTheSee.Data;
 
 namespace WhereIsTheSee.Api.Controllers
 {
   public class BaseApiController : ApiController
   {
+    protected ApplicationDbContext dbContext;
+
+    public BaseApiController()
+    {
+        this.dbContext = ApplicationDbContext.Create();
+    }
   }
 }

@@ -15,7 +15,6 @@ import {
  } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { DetailsComponent } from './details/details.component';
 import { FlagFormComponent } from './flag-form/flag-form.component';
 import { DetailMapComponent } from './detail-map/detail-map.component';
 import { HomeComponent } from './home/home.component';
@@ -30,11 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent, 
-    DetailsComponent,
     FlagFormComponent,
     FileSelectDirective,
     MarkerInfoComponent,
-    DetailsComponent,
     DetailMapComponent
   ],
   imports: [
