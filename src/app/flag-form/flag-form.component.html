@@ -11,14 +11,16 @@
             <input formControlName="beachName" matInput placeholder="Име на плажа">    
           </mat-form-field> 
 
-          <div class="wis-full-width">
-            <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
-            <button mat-raised-button
-              color="primary"
-              (click)="uploader.uploadAll()" 
-              [disabled]="!uploader.getNotUploadedItems().length" >
-                Снимка
-            </button>
+          <div class="wis-file-field wis-full-width">
+            <a class="btn-floating">
+              <img src="./assets/images/upload-icon.png" alt="">
+              <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+            </a>
+            <mat-form-field >
+              <div class="file-path-wrapper">
+                <input matInput placeholder="Избери файл" [(ngModel)]="uploadFileName" [ngModelOptions]="{standalone: true}">
+              </div>
+            </mat-form-field>
           </div>
 
           <mat-form-field class="wis-full-width">    

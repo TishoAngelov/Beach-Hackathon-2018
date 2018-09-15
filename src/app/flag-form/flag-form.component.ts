@@ -13,7 +13,7 @@ interface FlagData {
   long: number | null;
   flagType: FLAG;
   description?: string;
-  image?: string;
+  image?: Blob;
 }
 
 export enum FLAG {
@@ -31,8 +31,9 @@ export class FlagFormComponent implements OnInit {
 
   public flagForm: FormGroup;
 
-  public uploader: FileUploader = new FileUploader({url: 'URL', itemAlias: 'photo'});
+  public uploader: FileUploader = new FileUploader({ itemAlias: 'photo'});
   public flagType = FLAG;
+  public uploadFileName: string;
 
   public defaultFlagData: FlagData =  {
     beachName: 'Южен плаж',
@@ -41,16 +42,23 @@ export class FlagFormComponent implements OnInit {
     long: null,
     description: '',
     flagType: FLAG.GREEN,
-    image: ''
+    image: null
   };
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+    this.uploadFileName = '';
+  }
 
   public ngOnInit(): void {
     this.subscribeCurrentPosition();
-    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onAfterAddingFile = (file: any) => {
+      const imageFile = file.file.rawFile.slice('base64');
+      this.flagForm.get('image').setValue(imageFile);
+      this.uploadFileName = file._file.name;
+      file.withCredentials = false;
+
+     };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log('ImageUpload:uploaded:', item, status, response);
       alert('File uploaded successfully');
     };
   }
