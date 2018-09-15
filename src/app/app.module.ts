@@ -20,7 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { DetailMapComponent } from './detail-map/detail-map.component';
-import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 import { FlagFormComponent } from './flag-form/flag-form.component';
 import { FlagSevice } from './services/flags.service';
 import { HomeComponent } from './home/home.component';
@@ -39,7 +39,6 @@ import { YagaModule } from '@yaga/leaflet-ng2';
     RegisterComponent,
     HomeComponent,
     FlagFormComponent,
-    FileSelectDirective,
     MarkerInfoComponent,
     DetailMapComponent
   ],
@@ -62,6 +61,7 @@ import { YagaModule } from '@yaga/leaflet-ng2';
     MatInputModule,
     MatRadioModule,
     MatCardModule,
+    FileUploadModule,
     MatDividerModule
   ],
   exports: [
