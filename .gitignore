@@ -44,3 +44,6 @@ Thumbs.db
 /WhereIsTheSee/WhereIsTheSee.Api/bin
 /WhereIsTheSee/WhereIsTheSee.Api/obj/Debug
 /WhereIsTheSee/WhereIsTheSee.Api.Tests/bin/Debug
+/WhereIsTheSee/WhereIsTheSee.Api/obj/Release
+/WhereIsTheSee/WhereIsTheSee.Api.Tests/bin/Release
+/WhereIsTheSee/WhereIsTheSee.Api.Tests/obj/Release
