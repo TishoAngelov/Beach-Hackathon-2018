@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {FormControl, Validators} from '@angular/forms';
-import { AppErrorStateMatcher } from 'src/utils/error-state-matcher';
+import { Validators, FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'wis-register',
@@ -11,40 +10,48 @@ import { AppErrorStateMatcher } from 'src/utils/error-state-matcher';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient, fb: FormBuilder) {
+    this.passwordsForm = fb.group({
+      password: ['', Validators.required],
+      confirmPassword:   ['', Validators.required]
+    }, {validator: this.matchValidator});
 
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
-  passwordError: boolean = false;
+    this.registerForm = fb.group({
+      'email': ['', [Validators.required, Validators.email] ],
+      'passwords': this.passwordsForm
+    });
+  }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
 
-  matcher = new AppErrorStateMatcher();
+  registerForm;
+  passwordsForm
+
+  matchValidator(group: FormGroup) {
+    const mismatch = group.controls.password.value !== group.controls.confirmPassword.value;
+    const length = group.controls.password.value.length < 6;
+    console.log({
+      mismatch,
+      length
+    })
+    if (!mismatch && !length) {
+      return null;
+    }
+  
+    return {
+      mismatch,
+      length
+    };
+  }
 
   ngOnInit() {
   }
 
   createUser() : void {
-    // const filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    // if(!filter.test(this.email)) {
-    //   alert("Please, provide valid email");
-    //   return;
-    // }
-    if(!(this.password === this.confirmPassword && this.password.length >= 6)) {
-      this.passwordError = true;
-      return;
-    } else {
-      this.passwordError = false;
-    }
-    if(this.emailFormControl.valid) {
+    if(this.registerForm.valid) {
       this.http.post('http://whereisthesea.apphb.com/api/account/register', {
-        "Email": this.email,
-        "Password": this.password,
-        "ConfirmPassword": this.confirmPassword
+        "Email": this.registerForm.controls.email.value,
+        "Password": this.passwordsForm.controls.password.value,
+        "ConfirmPassword": this.passwordsForm.controls.confirmPassword.value
       }).subscribe(data => {
         debugger;
         this.router.navigate(['login']);
