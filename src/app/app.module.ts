@@ -1,35 +1,35 @@
-import { NgModule } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { FlagFormComponent } from './flag-form/flag-form.component';
-import { DetailMapComponent } from './detail-map/detail-map.component';
-import { YagaModule } from '@yaga/leaflet-ng2';
-
-import { FileSelectDirective } from 'ng2-file-upload';
-import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
-import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
-  MatInputModule,
-  MatTableModule,
+  MatDividerModule,
   MatFormFieldModule,
-  MatRadioModule,
-  MatToolbarModule,
-  MatMenuModule,
   MatIconModule,
-  MatProgressSpinnerModule
+  MatInputModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatTableModule,
+  MatToolbarModule
 } from '@angular/material';
-import { RegisterComponent } from './register/register.component';
+
+import { AgmCoreModule } from '@agm/core';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { DetailMapComponent } from './detail-map/detail-map.component';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { FlagFormComponent } from './flag-form/flag-form.component';
 import { FlagSevice } from './services/flags.service';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { MarkerInfoComponent } from './detail-map/marker-info/marker-info.component';
+import { NgModule } from '@angular/core';
+import { RegisterComponent } from './register/register.component';
+import { YagaModule } from '@yaga/leaflet-ng2';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { FlagSevice } from './services/flags.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent, 
+    HomeComponent,
     FlagFormComponent,
     FileSelectDirective,
     MarkerInfoComponent,
@@ -61,7 +61,8 @@ import { FlagSevice } from './services/flags.service';
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   exports: [
     YagaModule,
@@ -83,7 +84,8 @@ import { FlagSevice } from './services/flags.service';
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [FlagSevice],
   bootstrap: [AppComponent]

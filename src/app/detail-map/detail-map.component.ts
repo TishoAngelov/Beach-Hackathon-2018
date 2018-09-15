@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { FlagSevice } from '../services/flags.service';
 import { OSM_TILE_LAYER_URL } from '@yaga/leaflet-ng2';
 import { Point } from 'leaflet';
-import { FlagSevice } from '../services/flags.service';
 
 @Component({
   selector: 'wis-detail-map',
@@ -31,7 +31,7 @@ export class DetailMapComponent implements OnInit {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
     })
-    this.flagService.getALlFlags().subscribe(flags => { console.log(flags); this.markers = <any>flags });
+    this.flagService.getAllFlags().subscribe(flags => { console.log(flags); this.markers = <any>flags });
   }
 
 

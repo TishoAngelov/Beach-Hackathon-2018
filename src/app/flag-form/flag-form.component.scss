@@ -3,6 +3,37 @@ $color-green-flag: #2ecc71;
 $color-yellow-flag: #f1c40f;
 $color-red-flag: #ff8c81;
 
+.mat-card {
+  background: none;
+  box-shadow: none !important;
+
+  .mat-card-title, h2 {
+    color: rgba(0,0,0,.54);
+    text-align: center;
+    font-weight: normal;
+    font-family: 'Pacifico', cursive !important;
+  }
+ 
+}
+
+::ng-deep{
+  .text-area {
+    .mat-form-field-infix, .mat-form-field-wrapper {
+      width: 100% !important;
+    }
+  }
+}
+
+.flags {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.send {
+  width: 100%;
+  margin-top: 2rem;
+}
+
 .wis-full-width { 
   display: flex;
   flex-direction: row;
@@ -12,8 +43,8 @@ $color-red-flag: #ff8c81;
 }
 
 // Radio buttons
-// .wis-full-width {
   div {
+    flex-grow: 1;
     display: inline-block;
   }
 
@@ -65,4 +96,53 @@ $color-red-flag: #ff8c81;
       opacity: 1;
     }
   }
-// }
+
+  // FILE UPLOAD
+  .wis-file-field { 
+    position: relative;
+    .btn-floating { 
+      display: inline-block;
+      width: inherit;
+      text-align: center;
+      color: #fff;
+      background: -webkit-linear-gradient(50deg,#ff6ec4,#7873f5)!important;
+      background: -o-linear-gradient(50deg,#ff6ec4,#7873f5)!important;
+      background: linear-gradient(40deg,#ff6ec4,#7873f5)!important;
+      -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+      box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+      width: 47px;
+      height: 47px;
+      position: relative;
+      z-index: 1;
+      vertical-align: middle;
+      display: inline-block;
+      overflow: hidden;
+      -webkit-transition: all .2s ease-in-out;
+      -o-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      margin-top: 10px;
+      margin-right: 10px;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      cursor: pointer;
+
+      img { 
+        margin-top: 5px;
+        width: 35px;
+        height: 35px; 
+      }
+
+      input[type="file"] { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        opacity: 0
+      }
+    }
+  }
