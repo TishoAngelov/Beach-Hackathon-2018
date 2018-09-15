@@ -1,3 +1,5 @@
-agm-map {
-    height: 900px;
-  }
+yaga-map { 
+  height: calc(100% - 64px); 
+  width: 100%; 
+  position: absolute !important; 
+}
