@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
@@ -8,8 +9,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class MarkerInfoComponent  {
   @Input() marker;
-  domSanitizer: DomSanitizer
-  constructor(_DomSanitizer: DomSanitizer) {
-    this.domSanitizer = _DomSanitizer;
+  constructor(public domSanitizer: DomSanitizer) {
   }
 }
