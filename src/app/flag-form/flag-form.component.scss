@@ -1,7 +1,7 @@
 // Colors
 $color-green-flag: #2ecc71;
 $color-yellow-flag: #f1c40f;
-$color-red-flag: #e74c3c;
+$color-red-flag: #ff8c81;
 
 .wis-full-width { 
   display: flex;
@@ -13,9 +13,9 @@ $color-red-flag: #e74c3c;
 
 // Radio buttons
 // .wis-full-width {
-//   div {
-//     display: inline-block;
-//   }
+  div {
+    display: inline-block;
+  }
 
   input[type="radio"] {
     display: none;
@@ -24,7 +24,7 @@ $color-red-flag: #e74c3c;
       color: #333;
       font-size: 14px;
 
-      span {
+      span {  
         display: inline-block;
         width: 40px;
         height: 40px;
@@ -42,19 +42,22 @@ $color-red-flag: #e74c3c;
         img {
           opacity: 0;
           transition: all .3s ease;
+          max-width: 30px; 
+          max-height: 30px;
+          margin: 5px;
         }
       }
     }
 
-    &#color-green + label span {
+    &#color-1 + label span {
       background-color: $color-green-flag;
     }
 
-    &#color-yellow + label span {
+    &#color-2 + label span {
       background-color: $color-yellow-flag;
     }
 
-    &#color-red + label span {
+    &#color-3 + label span {
       background-color: $color-red-flag;
     }
 

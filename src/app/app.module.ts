@@ -36,6 +36,7 @@ import { YagaModule } from '@yaga/leaflet-ng2';
     DetailMapComponent
   ],
   imports: [
+    YagaModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

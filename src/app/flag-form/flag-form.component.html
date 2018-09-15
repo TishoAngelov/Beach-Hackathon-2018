@@ -1,8 +1,5 @@
-<mat-card *ngIf="flagForm">    
-  <!-- Title of an Card -->    
-  <mat-card-title>    
-    Състояние на морето
-  </mat-card-title>    
+<mat-card *ngIf="flagForm">
+  <mat-card-title>Състояние на морето</mat-card-title>
   
   <mat-card-content>    
       <form [formGroup]="flagForm" (ngSubmit)="onSubmit()">   
@@ -16,11 +13,11 @@
 
           <div class="wis-full-width">
             <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
-    
-            <button type="button" class="btn btn-success btn-s" 
+            <button mat-raised-button
+              color="primary"
               (click)="uploader.uploadAll()" 
               [disabled]="!uploader.getNotUploadedItems().length" >
-                  Снимка
+                Снимка
             </button>
           </div>
 
@@ -28,26 +25,36 @@
             <textarea formControlName="description" matInput placeholder="Описание" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>    
           </mat-form-field>
 
-          <mat-form-field class="wis-full-width">
-              <button type="button" class="btn btn-primary bmd-btn-fab">
-                  <i class="material-icons">grade</i>
-              </button>
-          </mat-form-field>
+          <div class="wis-full-width">
+            <div (click)="setFlagType(flagType.GREEN)">
+              <input type="radio" id="color-1" name="color" value="color-1" checked>
+              <label for="color-1">
+                <span>
+                  <img src="assets/images/green-flag.png" alt="Checked Icon" />
+                </span>
+              </label>
+            </div>
 
-          
-          <span>Флаг:</span> 
-          <mat-radio-group formControlName="flagType">
-            <mat-radio-button value="flagType.GREEN">Зелен</mat-radio-button>
-            <mat-radio-button value="flagType.YELLOW">Жълт</mat-radio-button> 
-            <mat-radio-button value="flagType.RED">Червен</mat-radio-button> 
-          </mat-radio-group>
-
-          <mat-form-field class="wis-full-width">    
-            <input matInput placeholder="Email">    
-          </mat-form-field> 
-          
-          <button mat-raised-button color="primary">Submit</button>
-          <button mat-raised-button color="primary  ">Clear</button> 
-      </form>    
-  </mat-card-content>    
+            <div (click)="setFlagType(flagType.YELLOW)">
+              <input type="radio" id="color-2" name="color" value="color-2">
+              <label for="color-2">
+                <span>
+                  <img src="./assets/images/yellow-flag.png" alt="Checked Icon" />
+                </span>
+              </label>
+            </div>
+            
+            <div (click)="setFlagType(flagType.RED)">
+              <input type="radio" id="color-3" name="color" value="color-3">
+              <label for="color-3">
+                <span>
+                  <img src="./assets/images/red-flag.png" alt="Checked Icon" />
+                </span>
+              </label>
+            </div>
+          </div>
+          <br>
+          <button mat-raised-button color="primary">Добави</button>
+      </form>
+  </mat-card-content>
 </mat-card>   

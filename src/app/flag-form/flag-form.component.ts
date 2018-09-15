@@ -35,7 +35,7 @@ export class FlagFormComponent implements OnInit {
   public flagType = FLAG;
 
   public defaultFlagData: FlagData =  {
-    beachName: '',
+    beachName: 'Южен плаж',
     locationName: 'Бургас',
     lat: null,
     long: null,
@@ -52,19 +52,26 @@ export class FlagFormComponent implements OnInit {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       console.log('ImageUpload:uploaded:', item, status, response);
       alert('File uploaded successfully');
-  };
+    };
+  }
+
+  public setFlagType(flag: number): void {
+    this.flagForm.get('flagType').setValue(flag);
   }
 
   public onSubmit(): void {
     console.warn(this.flagForm.value);
   }
 
-  private subscribeCurrentPosition(): void { 
+  private subscribeCurrentPosition(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
         this.defaultFlagData.lat = position.coords.latitude;
         this.defaultFlagData.long = position.coords.longitude;
         this.flagForm = this.initForm();
+      },
+      (err) => {
+        alert(err.message);
       });
     } else {
       alert('Geolocation is not supported by this browser.');
@@ -82,5 +89,4 @@ export class FlagFormComponent implements OnInit {
       image: [this.defaultFlagData.image, Validators.compose([Validators.required])]
     });
   }
-
 }
