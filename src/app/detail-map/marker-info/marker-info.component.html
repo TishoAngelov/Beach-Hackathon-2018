@@ -1,6 +1,6 @@
 <div>
-    <p>{{marker?.locationName}}</p>
+    <h3>{{marker?.locationName}}</h3>
     <p>{{marker?.dateCreated | date:'medium' }} </p>
     <p><cite>{{marker?.description}}</cite></p>
-    <img *ngIf="marker.imageBase64" [src]="domSanitizer.bypassSecurityTrustUrl(marker.imageBase64)" />
+    <img width="100%" *ngIf="marker.image" [src]="domSanitizer.bypassSecurityTrustUrl(marker.image)" />
 </div>

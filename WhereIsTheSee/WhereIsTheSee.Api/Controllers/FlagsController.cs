@@ -78,6 +78,9 @@ namespace WhereIsTheSee.Api.Controllers
         return BadRequest(ModelState);
       }
 
+      //string imageBase64 = $"data:{flag.ImageType};base64, {Convert.ToBase64String(flag.Image)}";
+      //flag.ImageBase64 = imageBase64;
+
       this.dbContext.Flags.Add(flag);
       this.dbContext.SaveChanges();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using WhereIsTheSee.Api.Enums;
 
 namespace WhereIsTheSee.Model
@@ -26,6 +27,8 @@ namespace WhereIsTheSee.Model
     public EFlagType FlagType { get; set; }
 
     public string Description { get; set; }
+
+    public string Image { get; set; }
 
     public DateTime DateCreated { get; set; }
   }

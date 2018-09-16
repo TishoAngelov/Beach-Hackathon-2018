@@ -3,7 +3,7 @@ import { FileSelectDirective, FileUploader } from 'ng2-file-upload/ng2-file-uplo
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FlagSevice } from '../services/flags.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 // TODO: Put in separate file
 
@@ -32,11 +32,11 @@ export class FlagFormComponent implements OnInit {
 
   public flagForm: FormGroup;
 
-  public uploader: FileUploader = new FileUploader({ itemAlias: 'photo'});
+  public uploader: FileUploader = new FileUploader({ itemAlias: 'photo' });
   public flagType = FLAG;
   public uploadFileName: string;
 
-  public defaultFlagData: FlagData =  {
+  public defaultFlagData: FlagData = {
     beachName: 'Южен плаж',
     locationName: 'Бургас',
     lat: null,
@@ -56,9 +56,8 @@ export class FlagFormComponent implements OnInit {
       this.uploadFileName = file._file.name;
       file.withCredentials = false;
 
-     };
+    };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log('ImageUpload:uploaded:', item, status, response);
     };
   }
 
@@ -67,9 +66,16 @@ export class FlagFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.flagService.addNewFlag(this.flagForm.value).subscribe(res => console.log(res));
-    console.warn(this.flagForm.value);
-    this.router.navigate(['/home']);
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64 = reader.result;
+      this.flagForm.get('image').setValue(base64);
+      this.flagService.addNewFlag(this.flagForm.value).subscribe(res => console.log(res));
+      console.warn(this.flagForm.value);
+      this.router.navigate(['/home']);
+    };
+
+    reader.readAsDataURL(this.flagForm.get('image').value as Blob);
   }
 
   private subscribeCurrentPosition(): void {
@@ -79,9 +85,9 @@ export class FlagFormComponent implements OnInit {
         this.defaultFlagData.long = position.coords.longitude;
         this.flagForm = this.initForm();
       },
-      (err) => {
-        alert(err.message);
-      });
+        (err) => {
+          alert(err.message);
+        });
     } else {
       alert('Geolocation is not supported by this browser.');
     }
