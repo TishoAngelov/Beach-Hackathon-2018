@@ -2,8 +2,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FlagFormComponent } from './flag-form/flag-form.component';
 import { HomeComponent } from 'src/app/home/home.component';
-import { NgModule } from '@angular/core';
 import { LoginComponent } from 'src/app/login/login.component';
+import { NgModule } from '@angular/core';
 import { RegisterComponent } from 'src/app/register/register.component';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
